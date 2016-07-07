@@ -20,10 +20,6 @@
 			this._template = document.querySelector(opts.tmpl).innerHTML;
 
 			this.render();
-
-			this.list = this.el.querySelector('.menu__list');
-			this.title = this.el.querySelector('.menu__title');
-
 			this._initEvents();
 		}
 
