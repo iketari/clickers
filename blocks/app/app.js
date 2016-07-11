@@ -33,8 +33,9 @@
 	});
 
 	let model = new Model({
-		url: 'menu.json',
-		data: {}
+		url: 'menu',
+		data: {},
+		id: '-KMQ5fZ3C3pi0JEFRre5'
 	});
 
 	let form = new Form({
@@ -54,7 +55,7 @@
 
 
 
-	// model.fetch(menu.render);
+	model.fetch(menu.render.bind(menu));
 
 	window.menu = menu;
 

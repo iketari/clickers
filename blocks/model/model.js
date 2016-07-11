@@ -46,7 +46,7 @@
 		}
 
 		save (resolve) {
-			let req = this._makeRequest('POST');
+			let req = this._makeRequest('PUT');
 
 			req.onreadystatechange = () => {
 				if (req.readyState != 4) return;
@@ -54,8 +54,8 @@
 				if (req.status != 200) {
 					//TODO: обаботать ошибки запроса
 				} else {
-					let id = this.parse(req.responseText).name;
-					this.id = id;
+					let data = this.parse(req.responseText);
+					this.data = data;
 
 
 					resolve(this);
@@ -74,7 +74,7 @@
 		_makeRequest (method) {
 			let xhr = new XMLHttpRequest();
 
-			xhr.open(method, BASE_URL + this.url, false);
+			xhr.open(method, BASE_URL + this.url + '/' + this.id + '.json', false);
 
 			return xhr;
 		}
