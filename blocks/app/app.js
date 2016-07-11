@@ -4,12 +4,13 @@
 	//import
 	let Menu = window.Menu;
 	let Form = window.Form;
+	let Model = window.Model;
 
 	let menu = new Menu({
 		el: document.querySelector('.js-menu'),
 		tmpl: '#menu',
 		data: {
-			title: 'SINGLE PAGE APPLICATION',
+			title: 'SINGLE PAGE APPLICATION FROM JS',
 			items: [
 				{
 					href: 'https://vk.com',
@@ -31,6 +32,11 @@
 		}
 	});
 
+	let model = new Model({
+		url: 'menu.json',
+		data: {}
+	});
+
 	let form = new Form({
 		el: document.querySelector('.js-form'),
 		tmpl: '#form'
@@ -42,7 +48,13 @@
 
 	form.el.addEventListener('add', function (event) {
 		menu.addItem(event.detail);
+		model.setData(menu.data);
+		model.save(); // сохранить на сервере
 	});
+
+
+
+	// model.fetch(menu.render);
 
 	window.menu = menu;
 

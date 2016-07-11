@@ -45,8 +45,13 @@
 
 		/**
 		 * Создаем HTML
+		 * @param {Object|undefined} data
 		 */
-		render () {
+		render (data) {
+			if (data) {
+				this.data = data;
+			}
+
 			this.el.innerHTML = templateEngine(this._template, this.data);
 		}
 
