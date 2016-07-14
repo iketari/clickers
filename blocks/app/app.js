@@ -33,9 +33,9 @@
 	});
 
 	let model = new Model({
-		url: 'menu',
 		data: {},
-		id: '-KMQ5fZ3C3pi0JEFRre5'
+		resource: 'menu',
+		id: '-KIIIl-A1w7peqCRVZ0R'
 	});
 
 	let form = new Form({
