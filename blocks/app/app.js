@@ -1,7 +1,12 @@
 //import
+
+import './../../libs/pure-min/pure-min.css';
+import './app.css';
+
 import Menu from './../menu/menu.js';
 import Form from './../form/form.js';
 import Model from './../model/model.js';
+
 
 let menu = new Menu({
 	el: document.querySelector('.js-menu'),

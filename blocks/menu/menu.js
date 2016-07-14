@@ -1,5 +1,8 @@
 //import
 import templateEngine from './../../libs/templateEngine';
+import template from './menu.jade';
+
+import './menu.css';
 
 /**
  * @class Menu
@@ -14,7 +17,14 @@ class Menu {
 	constructor(opts) {
 		this.el = opts.el;
 		this.data = opts.data;
+
+		console.time('tmpl_innerHTML');
 		this._template = document.querySelector(opts.tmpl).innerHTML;
+		console.timeEnd('tmpl_innerHTML');
+
+		console.time('jade_init');
+		this._template_jade = template;
+		console.timeEnd('jade_init');
 
 		this.render();
 		this._initEvents();
@@ -49,7 +59,13 @@ class Menu {
 			this.data = data;
 		}
 
+		console.time('tmpl_innerHTML_render');
 		this.el.innerHTML = templateEngine(this._template, this.data);
+		console.timeEnd('tmpl_innerHTML_render');
+
+		console.time('tmpl_jade_render');
+		this.el.innerHTML = this._template_jade(this.data);
+		console.timeEnd('tmpl_jade_render');
 	}
 
 	/**

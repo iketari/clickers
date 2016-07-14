@@ -1,5 +1,6 @@
 //import
 import templateEngine from './../../libs/templateEngine';
+import './form.css';
 
 /**
  * @class Form
